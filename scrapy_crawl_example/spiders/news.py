@@ -22,10 +22,7 @@ class NewsSpider(scrapy.Spider):
             loader.add_value('title', title)
             loader.add_value('description', description)
 
-            yield {
-                "title": title,
-                "description": description
-            }
+            yield loader.load_item()
         next_page = response.xpath('//*[@id="pagination"]/div/a[5]/@href').extract_first()
         if next_page:
             next_page = response.urljoin(next_page)
