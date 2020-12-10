@@ -1,12 +1,3 @@
-# Define your item pipelines here
-#
-# Don't forget to add your pipeline to the ITEM_PIPELINES setting
-# See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-
-
-# useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
-
 from pymongo import MongoClient
 from bson import ObjectId
 
@@ -22,6 +13,7 @@ class ScrapyCrawlExamplePipeline(object):
 
     def process_item(self, item, spider):
         self.collection.insert({"_id": str(ObjectId()),
-                                'title': item['title'][0],
-                                'description': item['description'][0]})
+                                'link_season': item['link_season'][0],
+                                'episodes': item['episodes']
+                                })
         return item

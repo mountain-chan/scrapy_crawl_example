@@ -15,8 +15,8 @@ NEWSPIDER_MODULE = 'scrapy_crawl_example.spiders'
 # config mongodb
 MONGODB_HOST = 'localhost'
 MONGODB_PORT = 27017
-MONGODB_DB = 'news'
-MONGODB_COLLECTION = 'chinh_tri'
+MONGODB_DB = 'movies'
+MONGODB_COLLECTION = 'movie'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'scrapy_crawl_example (+http://www.yourdomain.com)'
