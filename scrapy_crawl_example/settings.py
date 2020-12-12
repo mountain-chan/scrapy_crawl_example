@@ -59,6 +59,23 @@ ROBOTSTXT_OBEY = True
 #    'scrapy_crawl_example.middlewares.ScrapyCrawlExampleDownloaderMiddleware': 543,
 # }
 
+DOWNLOADER_MIDDLEWARES = {
+    # ...
+    'rotating_proxies.middlewares.RotatingProxyMiddleware': 610,
+    'rotating_proxies.middlewares.BanDetectionMiddleware': 620,
+    # ...
+}
+
+# PROXY_POOL_ENABLED = True
+
+ROTATING_PROXY_LIST_PATH = 'scrapy_crawl_example/proxies.txt'
+
+# ROTATING_PROXY_LIST = [
+#     '185.238.239.60:8090',
+#     '81.23.32.47:443',
+#     '45.233.65.41:999',
+# ]
+
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
 # EXTENSIONS = {
@@ -68,7 +85,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'scrapy_crawl_example.pipelines.ScrapyCrawlExamplePipeline': 300,
+    'scrapy_crawl_example.pipelines.ScrapyCrawlExamplePipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
